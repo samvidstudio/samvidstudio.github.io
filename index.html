@@ -215,6 +215,7 @@ html{scroll-behavior:smooth}
 <div style="font-size: 13px; color: #A9ADA6">Website, one-time</div>
 <div style="display: flex; align-items: baseline; gap: 10px; margin: 4px 0 16px"><span style="font: 800 34px 'Plus Jakarta Sans',Inter,system-ui,sans-serif; color: #A3E635">₹6,399</span><span style="color: #A9ADA6; text-decoration: line-through">₹7,999</span></div>
 <a id="d-wa" href="#" style="display: block; text-align: center; background: #A3E635; color: #111311; text-decoration: none; font-weight: 700; padding: 15px; border-radius: 12px">Make this mine</a>
+<a id="d-prev" href="designs/gym/" style="display: block; text-align: center; margin-top: 10px; border: 1px solid rgba(255,255,255,0.22); color: #F4F4F0; text-decoration: none; font-weight: 600; padding: 14px; border-radius: 12px">Preview full site</a>
 
 </div>
 </aside>
@@ -364,6 +365,7 @@ function show(id){
   var f=document.getElementById('d-feat'); f.innerHTML='';
   d.features.forEach(function(t){var r=document.createElement('div');r.style.cssText='display:flex;gap:10px;align-items:flex-start;font-size:15px';r.innerHTML=tick;var s=document.createElement('span');s.textContent=t;r.appendChild(s);f.appendChild(r);});
   document.getElementById('d-wa').href=d.wa;
+  document.getElementById('d-prev').href='designs/'+(id==='atv'?'dealer':id)+'/';
 }
 document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.pick);});});
 show('gym');
