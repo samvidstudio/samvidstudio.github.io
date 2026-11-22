@@ -52,17 +52,6 @@ a{color:#A3E635}a:hover{color:#C8F27A}
 .tab[aria-selected="true"]{border-color:#A3E635;background:#A3E635;color:#111311;font-weight:700}
 .tab:focus-visible,a:focus-visible{outline:2px solid #C8F27A;outline-offset:2px}
 [hidden]{display:none!important}
-.enq label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px;color:#F4F4F0}
-.enq input,.enq select,.enq textarea{width:100%;box-sizing:border-box;padding:12px 14px;border:1.5px solid rgba(255,255,255,0.18);border-radius:10px;background:#111311;color:#F4F4F0;font:400 15px Inter,system-ui,sans-serif;min-height:48px}
-.enq textarea{min-height:90px;resize:vertical}
-.enq input:focus,.enq select:focus,.enq textarea:focus{outline:none;border-color:#A3E635}
-.enq .erow{display:flex;gap:14px;flex-wrap:wrap}.enq .erow>div{flex:1 1 180px;min-width:0}
-.enq .consent{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px;color:#A9ADA6;margin-top:18px;line-height:1.45}
-.enq .consent input{width:auto;min-height:0;margin-top:2px;accent-color:#A3E635}
-.enq button{width:100%;margin-top:18px;min-height:52px;border:0;border-radius:12px;background:#A3E635;color:#111311;font:700 16px Inter,system-ui,sans-serif;cursor:pointer}
-.enq button:disabled{opacity:.6;cursor:wait}
-.enq .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-
 html{scroll-behavior:smooth}
 </style>
 </head>
@@ -227,7 +216,6 @@ html{scroll-behavior:smooth}
 <div style="display: flex; align-items: baseline; gap: 10px; margin: 4px 0 16px"><span style="font: 800 34px 'Plus Jakarta Sans',Inter,system-ui,sans-serif; color: #A3E635">₹6,399</span><span style="color: #A9ADA6; text-decoration: line-through">₹7,999</span></div>
 <a id="d-wa" href="#" style="display: block; text-align: center; background: #A3E635; color: #111311; text-decoration: none; font-weight: 700; padding: 15px; border-radius: 12px">Make this mine</a>
 <a id="d-prev" href="designs/gym/" style="display: block; text-align: center; margin-top: 10px; border: 1px solid rgba(255,255,255,0.22); color: #F4F4F0; text-decoration: none; font-weight: 600; padding: 14px; border-radius: 12px">Preview full site</a>
-<a id="d-form" href="#enquire" style="display: block; text-align: center; margin-top: 12px; color: #A9ADA6; font-size: 14px">Prefer a form? Send your details</a>
 
 </div>
 </aside>
@@ -343,43 +331,6 @@ html{scroll-behavior:smooth}
 </div>
 </section>
 
-<section id="enquire" style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 24px">
-<div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
-<div style="flex: 1 1 340px; min-width: 0">
-<div style="color: #C8F27A; font-weight: 600; font-size: 15px">Prefer a form?</div>
-<h2 style="font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -1.2px; margin: 12px 0 16px; line-height: 1.08">Tell us about your business.</h2>
-<p style="color: #A9ADA6; font-size: 17px; line-height: 1.6; margin: 0 0 20px">Share a few details and we will reply on WhatsApp within 24 hours, with an idea that fits your business.</p>
-<div style="display: flex; flex-direction: column; gap: 10px; color: #F4F4F0; font-size: 15px">
-<span style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A3E635" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Takes one minute</span>
-<span style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A3E635" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>No payment, no obligation</span>
-<span style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A3E635" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Your details stay private</span>
-</div>
-</div>
-<form id="enq" class="enq" novalidate style="flex: 1.3 1 440px; min-width: 0; background: #1B1E1B; border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 28px">
-<div class="erow"><div><label for="e-name">Your name</label><input id="e-name" name="name" required autocomplete="name" maxlength="80"></div>
-<div><label for="e-business">Business name</label><input id="e-business" name="business" required autocomplete="organization" maxlength="120"></div></div>
-<div class="erow"><div><label for="e-category">Business type</label><select id="e-category" name="category" required>
-<option value="">Choose one</option><option>Gym</option><option>Cafe or restaurant</option><option>Clinic</option><option>Hotel or homestay</option><option>Retail shop</option><option>Vehicle dealer</option><option>School or coaching</option><option>Office or other</option></select></div>
-<div><label for="e-need">What do you need?</label><select id="e-need" name="need">
-<option>A website</option><option>A smart tool or tracker</option><option>A custom app</option><option>Not sure yet</option></select></div></div>
-<div class="erow"><div><label for="e-phone">WhatsApp number</label><input id="e-phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="98765 43210"></div>
-<div><label for="e-city">City</label><input id="e-city" name="city" autocomplete="address-level2" placeholder="Dehradun"></div></div>
-<label for="e-email">Email (optional)</label><input id="e-email" name="email" type="email" autocomplete="email">
-<label for="e-message">Anything else? (optional)</label><textarea id="e-message" name="message" rows="3" maxlength="600" placeholder="For example: I liked the gym design, or I spend hours on monthly reports"></textarea>
-<input id="e-design" name="design" type="hidden" value="">
-<div class="hp" aria-hidden="true"><label for="e-hp">Leave this empty</label><input id="e-hp" name="website_hp" tabindex="-1" autocomplete="off"></div>
-<label class="consent"><input type="checkbox" id="e-consent" required> I agree that Samvid may contact me on WhatsApp, phone or email about this enquiry.</label>
-<button type="submit" id="e-btn">Send my details</button>
-<p id="e-msg" role="status" aria-live="polite" style="margin: 12px 0 0; font-size: 14px; min-height: 1em"></p>
-<p style="margin: 10px 0 0; font-size: 12px; color: #A9ADA6">We use your details only to reply to this enquiry. We never sell or share them.</p>
-</form>
-<div id="e-done" hidden style="flex: 1.3 1 440px; min-width: 0; background: #1B1E1B; border: 1px solid rgba(163,230,53,0.45); border-radius: 22px; padding: 36px 28px; text-align: center">
-<h3 style="margin: 0 0 10px; font-size: 26px; color: #A3E635">Thank you!</h3>
-<p id="e-done-msg" style="margin: 0; color: #F4F4F0; line-height: 1.6">We will WhatsApp you within 24 hours.</p>
-</div>
-</div>
-</section>
-
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 80px">
 <div style="background: #A3E635; color: #111311; border-radius: 30px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 28px; align-items: center">
 <div style="flex: 1 1 480px">
@@ -418,37 +369,6 @@ function show(id){
 }
 document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.pick);});});
 show('gym');
-})();
-</script>
-<script>
-(function(){
-var URL='https://script.google.com/macros/s/AKfycbyCgwKjsalqoT_Gu_D9-8RGzJc4DKks29lvFAP_UB-EqBbZlqB0IERmXhwNwsCPrTwg/exec';
-var f=document.getElementById('enq'),b=document.getElementById('e-btn'),m=document.getElementById('e-msg');
-var link=document.getElementById('d-form');
-if(link) link.addEventListener('click',function(){var n=document.getElementById('d-name');document.getElementById('e-design').value=n?n.textContent:'';});
-function val(id){return (document.getElementById(id).value||'').trim();}
-function err(t){m.style.color='#FF8A80';m.textContent=t;}
-f.addEventListener('submit',function(ev){
-  ev.preventDefault();
-  if(val('e-hp')){f.hidden=true;document.getElementById('e-done').hidden=false;return;}
-  if(!val('e-name')||!val('e-business')) return err('Please enter your name and business name.');
-  if(!val('e-category')) return err('Please choose your business type.');
-  if(val('e-phone').replace(/\D/g,'').length<10) return err('Please enter a valid 10-digit WhatsApp number.');
-  if(!document.getElementById('e-consent').checked) return err('Please tick the box so we can contact you.');
-  var design=val('e-design'), msg=val('e-message');
-  var full='Needs: '+val('e-need')+(design?'. Liked the '+design+' design':'')+(msg?'. '+msg:'');
-  var data={action:'enquiry',name:val('e-name'),business:val('e-business'),category:val('e-category'),phone:val('e-phone'),
-    city:val('e-city'),email:val('e-email'),message:full,website_hp:'',consent:true};
-  b.disabled=true;b.textContent='Sending...';m.textContent='';
-  fetch(URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
-  .then(function(r){return r.json();})
-  .then(function(res){
-    if(!res||!res.ok){b.disabled=false;b.textContent='Send my details';return err((res&&res.message)||'Something went wrong. Please WhatsApp us instead.');}
-    f.hidden=true;document.getElementById('e-done-msg').textContent=res.message||'We will WhatsApp you within 24 hours.';
-    document.getElementById('e-done').hidden=false;
-  })
-  .catch(function(){b.disabled=false;b.textContent='Send my details';err('Something went wrong. Please WhatsApp us on +91 81939 68270 instead.');});
-});
 })();
 </script>
 </body>
