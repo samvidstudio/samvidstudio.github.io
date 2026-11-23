@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot to Paying system | Samvid</title>
+<meta name="description" content="A simple system for B2B companies and startups: find the right businesses, follow up automatically, run pilots and turn them into paying clients. Built on Google Sheets by Samvid.">
+<link rel="canonical" href="https://samvidstudio.com/systems/pilot-to-paying/">
+<meta property="og:title" content="Pilot to Paying: a sales system for B2B companies">
+<meta property="og:description" content="Find leads, follow up automatically, run pilots and see what converts. Live preview with sample data.">
+<meta property="og:image" content="https://samvidstudio.com/og-image.png">
+<meta name="theme-color" content="#111311">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#111311;--card:#1B1E1B;--card2:#232723;--lime:#A3E635;--lime2:#C8F27A;--fg:#F4F4F0;--muted:#A9ADA6;--line:rgba(255,255,255,.12);--disp:'Plus Jakarta Sans',Inter,system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 Inter,system-ui,sans-serif}
+.w{max-width:1180px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--disp);margin:0;text-wrap:balance}
+a{color:var(--lime)}
+header .w{display:flex;align-items:center;gap:16px;padding-block:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none;font:800 18px var(--disp);letter-spacing:4px}
+.brand img{width:38px;height:38px;border-radius:10px;border:1px solid var(--line)}
+.nav{margin-left:auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:15px}
+.p,.nav a.p{background:var(--lime);color:#111311}.g{border:1px solid rgba(255,255,255,.22);color:var(--fg);background:transparent}
+.hero{padding:40px 0 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.tag{display:inline-block;padding:7px 14px;border-radius:99px;background:rgba(163,230,53,.12);color:var(--lime2);font-size:14px;font-weight:600}
+h1{font-size:clamp(40px,5.6vw,70px);line-height:1.03;letter-spacing:-2px;margin:20px 0 18px}h1 span{color:var(--lime)}
+.lead{color:var(--muted);font-size:19px;margin:0;max-width:560px}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.flow{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.step{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;background:rgba(255,255,255,.04)}
+.step b{flex:none;width:34px;height:34px;border-radius:10px;background:var(--lime);color:#111311;display:flex;align-items:center;justify-content:center;font:800 15px var(--disp)}
+.step span{font-weight:600}.step small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+.sec{padding:72px 0}
+.lbl{color:var(--lime2);font-weight:600;font-size:15px}
+h2{font-size:clamp(30px,4vw,48px);letter-spacing:-1.4px;line-height:1.08;margin:10px 0 28px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
+.card h3{font-size:20px;margin-bottom:8px}.card p{color:var(--muted);margin:0}
+.demo{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.45)}
+.tabs{display:flex;gap:6px;padding:14px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{flex:none;min-height:44px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--fg);font:600 14px Inter,sans-serif;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--lime);border-color:var(--lime);color:#111311;font-weight:700}
+.panel{padding:24px}.panel h3{font-size:22px}.panel .hint{color:var(--muted);margin:6px 0 18px;font-size:15px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;min-width:620px;font-size:14px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.8px;text-transform:uppercase;background:var(--card2)}
+tr:last-child td{border-bottom:0}
+.score{display:inline-block;min-width:38px;text-align:center;padding:3px 8px;border-radius:8px;background:rgba(163,230,53,.14);color:var(--lime2);font-weight:700}
+.chip{display:inline-block;padding:4px 10px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+.chip.new{background:var(--lime);color:#111311}.chip.warm{background:#F4F4F0;color:#111311}.chip.cold{border:1px solid var(--line);color:var(--muted)}
+.two{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+.mail{background:#F7F8F5;color:#111311;border-radius:16px;overflow:hidden}
+.mail .top{background:#111311;color:#F4F4F0;padding:12px 18px;font-weight:700;font-size:14px}
+.mail .body{padding:18px;font-size:14px;line-height:1.6}.mail .subj{font-weight:700;margin-bottom:10px}
+.mail .cta{display:inline-block;margin-top:8px;background:#A3E635;color:#111311;font-weight:700;padding:9px 14px;border-radius:8px}
+.seq{display:flex;flex-direction:column;gap:10px}
+.si{background:var(--card2);border-radius:14px;padding:14px}.si b{color:var(--lime2);font-size:13px;display:block}.si span{font-size:14px}
+.alert{margin-top:16px;display:flex;gap:12px;align-items:flex-start;background:rgba(163,230,53,.08);border:1px solid rgba(163,230,53,.35);border-radius:14px;padding:14px;font-size:14px}
+.alert svg{flex:none;color:var(--lime)}
+.pilot{background:var(--card2);border-radius:14px;padding:16px;margin-bottom:10px}
+.ptop,.pmeta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.ptop span{color:var(--lime2);font-weight:600;font-size:14px}
+.bar{height:8px;border-radius:99px;background:#333833;margin:10px 0;overflow:hidden}.bar i{display:block;height:100%;background:var(--lime);border-radius:99px}
+.pmeta{font-size:13px;color:var(--muted)}.pmeta .next{color:var(--fg)}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.kpi{background:var(--card2);border-radius:14px;padding:16px}.kpi b{display:block;font:800 30px var(--disp);font-variant-numeric:tabular-nums}.kpi span{color:var(--muted);font-size:13px}
+.kpi.hl b{color:var(--lime)}
+.funnel{margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.fr{display:grid;grid-template-columns:130px 1fr 44px;gap:12px;align-items:center;font-size:14px}.fr .b{height:14px;border-radius:6px;background:#333833;overflow:hidden}.fr .b i{display:block;height:100%;background:var(--lime)}
+.fr em{font-style:normal;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.note{color:var(--muted);font-size:13px;margin:14px 0 0}
+.list{display:grid;gap:10px}.li{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.li svg{flex:none;color:var(--lime);margin-top:2px}
+.final{background:var(--lime);color:#111311;border-radius:28px;padding:clamp(28px,5vw,56px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.final h2{margin:0 0 8px}.final p{margin:0;color:#2B3A12}.final .btn{background:#111311;color:#F4F4F0}
+.final a.sub{color:#111311;font-weight:600;display:block;text-align:center;margin-top:10px}
+footer{border-top:1px solid var(--line);margin-top:72px}footer .w{padding-block:24px;display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;color:var(--muted);font-size:14px}
+footer a{color:var(--muted)}
+.tab:focus-visible,a:focus-visible{outline:2px solid var(--lime2);outline-offset:2px}
+[hidden]{display:none!important}
+@media (max-width:900px){.hero,.two{grid-template-columns:1fr}.g3{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.nav a:not(.btn){display:none}}
+@media (max-width:520px){.sec{padding:52px 0}.lead{font-size:17px}.panel{padding:16px}.fr{grid-template-columns:96px 1fr 38px}}
+</style></head><body>
+<header><div class="w"><a class="brand" href="../../"><img src="../../logo.png" alt="Samvid logo">SAMVID</a>
+<nav class="nav" aria-label="Main"><a href="#demo">Live preview</a><a href="#how">How it works</a><a href="../../#showcase">Website designs</a><a class="btn p" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20Pilot%20to%20Paying%20system%20on%20samvidstudio.com.%20Can%20we%20talk%20about%20setting%20it%20up%20for%20my%20company%3F">Talk to us</a></nav></div></header>
+<main class="w">
+<section class="hero"><div><span class="tag">For B2B companies and startups</span>
+<h1>From first email to <span>paying client.</span></h1>
+<p class="lead">A simple system that finds the right businesses, follows up for you, runs your pilots and shows what converts. Built on Google Sheets and Gmail, so your team already knows how to use it.</p>
+<div class="acts"><a class="btn p" href="#demo">See it working</a><a class="btn g" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20Pilot%20to%20Paying%20system%20on%20samvidstudio.com.%20Can%20we%20talk%20about%20setting%20it%20up%20for%20my%20company%3F">Talk about your pipeline</a></div></div>
+<div class="flow" aria-label="The five stages">
+<div class="step"><b>1</b><div><span>Find</span><small>The right businesses, by city and type</small></div></div>
+<div class="step"><b>2</b><div><span>Reach out</span><small>Problem-first emails with 2 follow-ups</small></div></div>
+<div class="step"><b>3</b><div><span>Capture</span><small>Every reply and request in one place</small></div></div>
+<div class="step"><b>4</b><div><span>Run pilots</span><small>Check-ins on time, nothing forgotten</small></div></div>
+<div class="step"><b>5</b><div><span>Convert</span><small>See what turns into paying clients</small></div></div>
+</div></section>
+
+<section class="sec" style="padding-top:24px"><div class="lbl">Sound familiar?</div><h2>Good product. Leaky pipeline.</h2>
+<div class="g3">
+<div class="card"><h3>Leads in scattered sheets</h3><p>Prospect lists live in five files, and nobody is sure which one is current.</p></div>
+<div class="card"><h3>Follow-ups depend on memory</h3><p>Most deals are lost after the first email, simply because the second one never goes.</p></div>
+<div class="card"><h3>Pilots end without a decision</h3><p>A 30-day pilot drifts to day 45, and the client never says yes or no.</p></div>
+</div></section>
+
+<section class="sec" id="demo" style="padding-top:24px"><div class="lbl">Live preview</div><h2>See it working, with sample data.</h2>
+<div class="demo">
+<div class="tabs" role="tablist" aria-label="System screens">
+<button class="tab" role="tab" aria-selected="true" data-t="find">1. Find leads</button>
+<button class="tab" role="tab" aria-selected="false" data-t="out">2. Outreach</button>
+<button class="tab" role="tab" aria-selected="false" data-t="req">3. Requests</button>
+<button class="tab" role="tab" aria-selected="false" data-t="pil">4. Pilots</button>
+<button class="tab" role="tab" aria-selected="false" data-t="dash">5. Dashboard</button>
+</div>
+
+<div class="panel" data-p="find"><h3>Find the right businesses</h3><p class="hint">Search by city and type. Only businesses with a real contact are kept, and each gets a fit score.</p>
+<div class="tbl"><table><thead><tr><th>Business</th><th>Type</th><th>City</th><th>Rating</th><th>Contact found</th><th>Fit</th></tr></thead><tbody><tr><td><b>Pinecrest Resort</b></td><td>Resort</td><td>Mussoorie</td><td>4.6</td><td>Email + phone</td><td><span class="score">92</span></td></tr><tr><td><b>The Riverside Stay</b></td><td>Boutique hotel</td><td>Rishikesh</td><td>4.5</td><td>Email</td><td><span class="score">88</span></td></tr><tr><td><b>Cedar Villas</b></td><td>Villas</td><td>Nainital</td><td>4.7</td><td>Phone</td><td><span class="score">81</span></td></tr><tr><td><b>Urban Nest Suites</b></td><td>Service apartments</td><td>Dehradun</td><td>4.3</td><td>Email + phone</td><td><span class="score">79</span></td></tr><tr><td><b>Lakeview Retreat</b></td><td>Resort</td><td>Bhimtal</td><td>4.4</td><td>Email</td><td><span class="score">74</span></td></tr><tr><td><b>Summit Inn</b></td><td>Hotel</td><td>Dhanaulti</td><td>4.1</td><td>Website form</td><td><span class="score">61</span></td></tr></tbody></table></div>
+<p class="note">Sample example: a hotel tech company looking for hotels and resorts in Uttarakhand. Names are illustrative.</p></div>
+
+<div class="panel" data-p="out" hidden><h3>Outreach that follows up on its own</h3><p class="hint">Each business gets a short, problem-first email. If there is no reply, two polite follow-ups go out, then the lead is closed.</p>
+<div class="two"><div class="mail"><div class="top">Email preview</div><div class="body"><div class="subj">Subject: Fewer front desk calls at Pinecrest Resort</div>
+<p style="margin:0 0 10px">Namaste,</p><p style="margin:0 0 10px">Guests at resorts like Pinecrest often message late at night about towels, checkout times and local trips, and the front desk is stretched.</p><p style="margin:0 0 10px">We help properties answer these instantly on WhatsApp, 24/7. Would a free 30-day pilot be useful for you?</p><span class="cta">Request a pilot</span></div></div>
+<div class="seq"><div class="si"><b>Day 0</b><span>First email, written for that business</span></div><div class="si"><b>Day 4</b><span>Follow-up 1: a short reminder with one new benefit</span></div><div class="si"><b>Day 9</b><span>Follow-up 2: a final, friendly check-in</span></div><div class="si"><b>Day 10</b><span>No reply: marked closed. Reply: moved to Requests.</span></div></div></div></div>
+
+<div class="panel" data-p="req" hidden><h3>Every reply and request, in one place</h3><p class="hint">Website forms, email replies and referrals land in one list, with an instant alert to your team.</p>
+<div class="tbl"><table><thead><tr><th>Business</th><th>Source</th><th>Request</th><th>When</th><th>Status</th></tr></thead><tbody><tr><td><b>Pinecrest Resort</b></td><td>Website form</td><td>Pilot request</td><td>Today, 10:42 am</td><td><span class="chip new">New</span></td></tr><tr><td><b>Urban Nest Suites</b></td><td>Email reply</td><td>Asked for a call</td><td>Yesterday</td><td><span class="chip warm">Follow up</span></td></tr><tr><td><b>The Riverside Stay</b></td><td>Referral</td><td>Pilot request</td><td>2 days ago</td><td><span class="chip warm">Follow up</span></td></tr><tr><td><b>Cedar Villas</b></td><td>Email reply</td><td>Not now, try in March</td><td>3 days ago</td><td><span class="chip cold">Later</span></td></tr></tbody></table></div>
+<div class="alert"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 01-3.4 0"/></svg><div><b>Instant alert:</b> New pilot request from Pinecrest Resort. Reply within 2 hours for the best chance.</div></div></div>
+
+<div class="panel" data-p="pil" hidden><h3>Pilots that end with a decision</h3><p class="hint">Every pilot has a start date, scheduled check-ins and a review call booked before day 30.</p>
+<div class="pilot"><div class="ptop"><b>Pinecrest Resort</b><span>Day 22 of 30</span></div><div class="bar"><i style="width:73%"></i></div><div class="pmeta"><span>Weekly check-in done</span><span class="next">Next: Review call on day 30</span></div></div><div class="pilot"><div class="ptop"><b>The Riverside Stay</b><span>Day 9 of 30</span></div><div class="bar"><i style="width:30%"></i></div><div class="pmeta"><span>Staff training done</span><span class="next">Next: First results on day 14</span></div></div><div class="pilot"><div class="ptop"><b>Urban Nest Suites</b><span>Day 3 of 30</span></div><div class="bar"><i style="width:10%"></i></div><div class="pmeta"><span>Setup complete</span><span class="next">Next: Welcome call today</span></div></div><p class="note">Reminders go to your team before every check-in and review call.</p></div>
+
+<div class="panel" data-p="dash" hidden><h3>See what converts</h3><p class="hint">One view of the whole pipeline, updated automatically. A summary arrives by email every Monday.</p>
+<div class="kpis"><div class="kpi"><b>240</b><span>Leads found</span></div><div class="kpi"><b>180</b><span>Emails sent</span></div><div class="kpi"><b>22</b><span>Replies</span></div><div class="kpi"><b>6</b><span>Pilots running</span></div><div class="kpi hl"><b>2</b><span>Paying clients</span></div></div>
+<div class="funnel"><div class="fr"><span>Leads found</span><div class="b"><i style="width:100%"></i></div><em>240</em></div><div class="fr"><span>Emails sent</span><div class="b"><i style="width:75%"></i></div><em>180</em></div><div class="fr"><span>Replies</span><div class="b"><i style="width:9.2%"></i></div><em>22</em></div><div class="fr"><span>Pilots</span><div class="b"><i style="width:2.5%"></i></div><em>6</em></div><div class="fr"><span>Paying</span><div class="b"><i style="width:0.8%"></i></div><em>2</em></div></div>
+<p class="note">Sample numbers for illustration only. Your dashboard shows your real figures.</p></div>
+</div></section>
+
+<section class="sec" id="how" style="padding-top:24px"><div class="lbl">How it works</div><h2>Runs on tools your team already uses.</h2>
+<div class="list">
+<div class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Google Sheets and Gmail.</b> No new software, no monthly licence. Your data stays in your own account.</div></div>
+<div class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Approve or Auto mode.</b> Review every email before it goes, or let it run on its own once you trust it.</div></div>
+<div class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Website form connected.</b> Pilot and demo requests from your site land straight in the pipeline.</div></div>
+<div class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Set up in about 2 weeks,</b> with a handover session and a simple guide for your team.</div></div>
+<div class="li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>Built and tested on our own business first.</b> Samvid runs its own outreach on this same system.</div></div>
+</div></section>
+
+<section class="sec" style="padding-top:24px"><div class="lbl">Who it is for</div><h2>Made for teams that sell to businesses.</h2>
+<div class="g3">
+<div class="card"><h3>Startups and SaaS</h3><p>Hotel tech, HR tech, ed tech: anyone who runs demos and pilots before a sale.</p></div>
+<div class="card"><h3>Travel and tour companies</h3><p>Partnerships with hotels, resorts and agents, tracked from first contact to contract.</p></div>
+<div class="card"><h3>Agencies and B2B services</h3><p>Consultants, agencies and suppliers who need a steady flow of new business clients.</p></div>
+</div></section>
+
+<section class="final"><div><h2>Want this for your company?</h2><p>Fixed quote after a free 15-minute call. 50% advance, the rest on delivery.</p></div>
+<div><a class="btn" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20Pilot%20to%20Paying%20system%20on%20samvidstudio.com.%20Can%20we%20talk%20about%20setting%20it%20up%20for%20my%20company%3F">Talk to us on WhatsApp</a><a class="sub" href="../../#enquire">Or send your details</a></div></section>
+</main>
+<footer><div class="w"><span>Samvid, Dehradun, India. Sample data shown on this page is for illustration.</span><span><a href="../../">samvidstudio.com</a> | <a href="../../privacy.html">Privacy</a></span></div></footer>
+<script>
+document.querySelectorAll('.tab').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false');});
+document.querySelectorAll('.panel').forEach(function(p){p.hidden=p.dataset.p!==b.dataset.t;});});});
+</script>
+</body></html>

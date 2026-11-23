@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CareWell Clinic | Sample design by Samvid</title>
+<meta name="description" content="A sample clinic website designed by Samvid. Like it? Samvid can make one for your business.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>:root{--bg:#F4F7FB;--surf:#FFFFFF;--text:#0F172A;--muted:#475569;--ac:#0F4C81;--acText:#FFFFFF;--line:#E2E8F0;--tagBg:#DFF5F0;--tagText:#0B6B5C;--tile1:#DCE7F3;--tile2:#DFF5F0;--disp:'Manrope';--body:Inter}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body),system-ui,sans-serif;font-size:16px;line-height:1.6;padding-top:52px}
+.w{max-width:1140px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3,.logo{font-family:var(--disp),system-ui,sans-serif;margin:0;text-wrap:balance}
+.ac{color:var(--ac)}.ac-bg{background:var(--ac);color:var(--acText)}
+.sbar{position:fixed;top:0;left:0;right:0;z-index:50;background:#111311;color:#F4F4F0;font:500 13px Inter,system-ui,sans-serif;border-bottom:1px solid rgba(255,255,255,.12)}
+.sbar .w{display:flex;align-items:center;gap:12px;min-height:52px;flex-wrap:wrap}
+.sbar img{width:26px;height:26px;border-radius:7px}
+.sbar a{color:#F4F4F0;text-decoration:none}
+.sbar .mine{margin-left:auto;background:#A3E635;color:#111311;font-weight:700;padding:8px 14px;border-radius:8px}
+.sbar .back{color:#A9ADA6}
+nav{display:flex;align-items:center;gap:26px;padding:22px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:24px;letter-spacing:.5px}
+.links{margin-left:auto;display:flex;gap:24px;align-items:center}
+.links a{color:var(--muted);text-decoration:none;font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:12px;font:700 15px var(--body),system-ui,sans-serif;text-decoration:none;border:0;cursor:pointer}
+.ghost{border:1px solid var(--line);color:var(--text);background:transparent}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:48px 0 64px}
+.tag{display:inline-block;padding:7px 14px;border-radius:99px;background:var(--tagBg);color:var(--tagText);font-size:13px;font-weight:600}
+h1{font-size:clamp(42px,6.4vw,74px);line-height:1.02;letter-spacing:-2px;margin:20px 0}
+.lead{font-size:19px;color:var(--muted);max-width:480px;margin:0}
+.acts{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.panel{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:4px}
+.panel h3{font-size:20px;margin-bottom:10px}.panel .btn{margin-top:16px}
+.small{margin:0 0 12px;color:var(--muted);font-size:14px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px}.row.last{border:0}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.slots span{padding:11px 0;text-align:center;border:1px solid var(--line);border-radius:10px;font-weight:600;font-size:14px}
+.slots .on{background:var(--ac);color:var(--acText);border-color:var(--ac)}.slots .off{color:#94A3B8;text-decoration:line-through}
+.prod{display:flex;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.prod b{display:block}.prod span{font-weight:700;font-size:14px}
+.pimg{width:110px;height:70px;border-radius:12px;background:var(--tile1);display:flex;align-items:center;justify-content:center;color:var(--ac);flex:none}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:24px 10px;text-align:center}.stats b{display:block;font:800 30px var(--disp),system-ui,sans-serif;color:var(--ac)}.stats span{color:var(--muted);font-size:14px}
+.sec{padding:80px 0}
+h2{font-size:clamp(30px,4vw,44px);letter-spacing:-1px;line-height:1.1;margin-bottom:32px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card h3{font-size:20px;margin:14px 0 8px}.card p{color:var(--muted);margin:0;font-size:15px}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--tagBg);display:flex;align-items:center;justify-content:center;color:var(--ac)}
+.offer{display:flex;flex-direction:column;gap:10px}
+.offer .price{font:800 30px var(--disp),system-ui,sans-serif;margin-top:auto}.offer .price small{font:500 14px var(--body),sans-serif;color:var(--muted)}
+.offer.hot{background:var(--ac);color:var(--acText);border-color:var(--ac)}.offer.hot p,.offer.hot .price small{color:inherit;opacity:.85}
+.note{color:var(--muted);font-size:14px;margin:18px 0 0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.about p{color:var(--muted);font-size:18px;margin:0}
+.pts{display:grid;gap:12px}.pt{display:flex;gap:12px;align-items:center;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:16px;font-weight:600}
+.pt svg{color:var(--ac);flex:none}
+.gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:14px}
+.tile{border-radius:18px;background:linear-gradient(135deg,var(--tile1),var(--tile2));display:flex;align-items:flex-end;padding:16px;color:var(--muted);font-size:13px;font-weight:600}
+.tile:first-child{grid-row:span 2}
+.faq{display:grid;gap:10px;max-width:760px}
+details{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+summary{cursor:pointer;font-weight:700;list-style:none}summary::-webkit-details-marker{display:none}
+details p{margin:10px 0 0;color:var(--muted)}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.contact .card b{display:block;font-family:var(--disp),sans-serif;font-size:18px;margin-bottom:6px}
+.map{border-radius:20px;min-height:220px;background:repeating-linear-gradient(45deg,var(--tile1) 0 14px,var(--tile2) 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;font-size:14px}
+.final{background:var(--ac);color:var(--acText);border-radius:28px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin:40px 0 70px}
+.final h2{margin:0}.final .btn{background:var(--acText);color:var(--ac)}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+footer .w{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--text)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:#111311;color:#F4F4F0;border:1px solid rgba(163,230,53,.5);border-radius:14px;padding:14px 18px;font:500 14px Inter,sans-serif;max-width:min(92vw,440px);transition:.25s;z-index:60;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.toast.show{opacity:1;transform:translateX(-50%);pointer-events:auto}.toast a{color:#A3E635;font-weight:700}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+@media (max-width:860px){.hero,.about,.contact{grid-template-columns:1fr}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:1fr}.links a{display:none}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.gal{grid-template-columns:1fr 1fr;grid-template-rows:160px 160px 160px}.tile:first-child{grid-row:auto;grid-column:span 2}}
+@media (max-width:520px){.g4{grid-template-columns:1fr}.sec{padding:56px 0}.final{padding:30px}.lead{font-size:17px}.sbar .back{display:none}.sbar .txt{font-size:12px}nav .links .btn{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toast{transition:none}}
+</style></head>
+<body>
+<div class="sbar"><div class="w"><img src="../../logo.png" alt="Samvid logo"><span class="txt">Sample design by <b>Samvid</b></span><a class="back" href="../../#showcase">Back to all designs</a><a class="mine" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20CareWell%20Clinic%20sample%20design%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20my%20business%3F">Make this mine</a></div></div>
+<div class="w">
+<nav><div class="logo">CareWell <span class="ac">Clinic</span></div><div class="links"><a href="#classes">Services</a><a href="#plans">Doctors</a><a href="#about">Timings</a><a href="#contact">Contact</a><a class="btn ac-bg" href="#contact" style="color:var(--acText)">Book appointment</a></div></nav>
+<section class="hero"><div><span class="tag">Family clinic, Dehradun</span><h1>Care that<br><span class="ac">remembers</span> you.</h1><p class="lead">Book online in a minute. Get a reminder the day before, and a gentle nudge when your next check-up is due.</p>
+<div class="acts"><button class="btn ac-bg demo" data-msg="book appointment">Book appointment</button><a class="btn ghost" href="#plans">Call the clinic</a></div></div><div class="panel"><h3>Book a visit</h3><p class="small">Tomorrow, general consultation</p>
+<div class="slots"><span>9:30 am</span><span class="on">10:00 am</span><span class="off">10:30 am</span><span>11:00 am</span><span class="off">5:00 pm</span><span>5:30 pm</span></div>
+<button class="btn ac-bg demo" data-msg="confirm the appointment and send a reminder">Confirm 10:00 am</button></div></section>
+<div class="stats"><div><b>Mon to Sat</b><span>9 am to 1 pm, 5 to 8 pm</span></div><div><b>1 minute</b><span>to book online</span></div><div><b>Reminders</b><span>before every visit</span></div><div><b>Reports</b><span>on your phone</span></div></div>
+<section class="sec" id="classes"><h2>Our services</h2><div class="g4"><div class="card"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>General consultation</h3><p>Everyday health concerns for the whole family.</p></div><div class="card"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Health check-ups</h3><p>Yearly packages with reports on your phone.</p></div><div class="card"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Follow-up care</h3><p>Regular reviews so nothing is missed.</p></div><div class="card"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><h3>Child health</h3><p>Vaccination reminders, sent on time.</p></div></div></section>
+<section class="sec" id="plans" style="padding-top:0"><h2>Check-up packages</h2><div class="g3"><div class="card offer"><h3>Basic</h3><p>Blood sugar, BP and a doctor review.</p><div class="price">₹[799] <small></small></div><button class="btn ghost demo" style="" data-msg="send this enquiry to you on WhatsApp">Choose Basic</button></div><div class="card offer hot"><h3>Complete</h3><p>Full blood panel, ECG and consultation.</p><div class="price">₹[2,499] <small></small></div><button class="btn  demo" style="background:var(--acText);color:var(--ac)" data-msg="send this enquiry to you on WhatsApp">Choose Complete</button></div><div class="card offer"><h3>Senior care</h3><p>Complete package plus home sample pickup.</p><div class="price">₹[3,499] <small></small></div><button class="btn ghost demo" style="" data-msg="send this enquiry to you on WhatsApp">Choose Senior care</button></div></div><p class="note">Prices are placeholders. Your real packages go here.</p></section>
+<section class="sec about" id="about" style="padding-top:0"><div><h2>Why families trust us</h2><p>Good care does not end when you leave the clinic. We remind you when it is time to come back.</p></div><div class="pts"><div class="pt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Reminder the evening before</span></div><div class="pt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Reports shared on WhatsApp</span></div><div class="pt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Check-up due nudges</span></div><div class="pt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Short waiting time</span></div></div></section>
+<section class="sec" style="padding-top:0"><h2>Take a look inside</h2><div class="gal"><div class="tile">Your photo: Reception</div><div class="tile">Your photo: Consultation room</div><div class="tile">Your photo: Lab corner</div><div class="tile">Your photo: Waiting area</div><div class="tile">Your photo: Doctor at work</div></div></section>
+<section class="sec" style="padding-top:0"><h2>Questions</h2><div class="faq"><details><summary>Can I book for my parents?</summary><p>Yes. Add their name when you book.</p></details><details><summary>Do you share reports online?</summary><p>Yes, on WhatsApp or email, the same day.</p></details><details><summary>Is walk-in allowed?</summary><p>Yes, but booked patients are seen first.</p></details></div></section>
+<section class="sec" id="contact" style="padding-top:0"><h2>Visit us</h2><div class="contact"><div class="card"><b>Timings</b><p>9 am to 1 pm and 5 pm to 8 pm, Monday to Saturday</p><b style="margin-top:18px">Address</b><p>[Your full address]</p><b style="margin-top:18px">Phone</b><p>[Your phone number]</p></div><div class="map">[Google Map of your location]</div></div></section>
+<section class="final"><h2>Book your visit in a minute.</h2><button class="btn demo" data-msg="book on whatsapp">Book on WhatsApp</button></section>
+</div>
+<footer><div class="w"><span>CareWell Clinic is a sample business. Names, prices and details are placeholders.</span><span>Designed by <a href="../../">Samvid</a></span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){var t=document.getElementById('toast'),h;
+document.querySelectorAll('.demo').forEach(function(b){b.addEventListener('click',function(){
+t.innerHTML='On your website, this button will '+b.dataset.msg+'. <a href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20CareWell%20Clinic%20sample%20design%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20my%20business%3F">Make this mine</a>';
+t.classList.add('show');clearTimeout(h);h=setTimeout(function(){t.classList.remove('show');},4500);});});})();
+</script>
+</body></html>
