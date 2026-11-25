@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Junction Talent | Sample design by Samvid</title>
+<meta name="description" content="A sample recruitment agency website designed by Samvid. Like it? Samvid can make one for your business.">
+<link rel="icon" href="../../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@500;600&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFD23F;--k:#0E0E0E;--k2:#1C1C1C;--p:#F2F0EA;--g:#7A7A74;--r:#FF4F2E}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth}
+body{background:var(--p);color:var(--k);font:400 16px/1.55 "Inter Tight",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.disp{font-family:"Big Shoulders Display",Impact,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.86}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+/* Samvid bar */
+.sbar{position:fixed;top:0;left:0;right:0;z-index:60;background:#111311;color:#F4F4F0;font:500 13px Inter,system-ui,sans-serif;border-bottom:1px solid rgba(255,255,255,.12)}
+.sbar .w{max-width:1240px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:12px;min-height:52px;flex-wrap:wrap}
+.sbar img{width:26px;height:26px;border-radius:7px}
+.sbar a{color:#F4F4F0;text-decoration:none}
+.sbar .mine{margin-left:auto;background:#A3E635;color:#111311;font-weight:700;padding:8px 14px;border-radius:8px}
+.sbar .back{color:#A9ADA6}
+
+/* Top strip */
+.top{margin-top:52px;display:grid;grid-template-columns:auto 1fr auto;border-bottom:2px solid var(--k);background:var(--p);position:sticky;top:52px;z-index:40}
+.top>*{padding:0 22px;display:flex;align-items:center;height:64px}
+.logo{border-right:2px solid var(--k);gap:10px;font:700 20px "Inter Tight";letter-spacing:-.02em;text-decoration:none}
+.logo i{width:26px;height:26px;background:var(--y);border:2px solid var(--k);display:grid;place-items:center;font-style:normal;font:900 15px "Big Shoulders Display"}
+.menu{gap:28px;font-weight:600;font-size:15px}
+.menu a{text-decoration:none}
+.menu a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.clock{border-left:2px solid var(--k);font:600 14px "IBM Plex Mono";gap:8px;background:var(--y)}
+.clock b{width:8px;height:8px;background:var(--r);border-radius:50%;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Hero */
+.hero{padding:56px 22px 0;max-width:1240px;margin:0 auto}
+.hero h1{font-size:clamp(64px,13.5vw,196px)}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:inline-block;transform:translateY(105%);animation:up .9s cubic-bezier(.2,.9,.2,1) forwards}
+.hero h1 .ln:nth-child(2) span{animation-delay:.1s}
+.hl{background:var(--y);padding:0 .08em;box-decoration-break:clone}
+@keyframes up{to{transform:none}}
+.hero-row{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;margin-top:26px;padding-bottom:30px}
+.hero-row p{font-size:20px;max-width:520px}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--k);color:var(--p);font:700 16px "Inter Tight";padding:18px 26px;border:2px solid var(--k);cursor:pointer;text-decoration:none;transition:background .2s,color .2s,box-shadow .2s,transform .2s}
+.cta:hover{background:var(--y);color:var(--k);box-shadow:6px 6px 0 var(--k);transform:translate(-3px,-3px)}
+.cta.alt{background:transparent;color:var(--k)}
+
+/* Departure board */
+.board{background:var(--k);color:#fff;border-block:2px solid var(--k)}
+.board .w{max-width:1240px;margin:0 auto;padding:28px 22px 34px}
+.bh{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.bh .disp{font-size:44px;color:var(--y)}
+.bh .mono{font-size:13px;color:#9A9A94}
+.row{display:grid;grid-template-columns:2.4fr 1.3fr 1fr 1.3fr;gap:14px;padding:10px 0;border-top:1px solid #2A2A2A;align-items:center;cursor:pointer}
+.row.hd{font:600 12px "IBM Plex Mono";color:#8A8A84;letter-spacing:.1em;cursor:default}
+.row:not(.hd):hover .cells span{background:#2F2F2F}
+.cells{display:flex;gap:3px;flex-wrap:nowrap;overflow:hidden}
+.cells span{flex:none;width:1.25em;height:1.7em;display:grid;place-items:center;background:var(--k2);font:600 clamp(13px,1.5vw,18px) "IBM Plex Mono";position:relative;border-radius:2px;transition:background .2s}
+.cells span::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:#000}
+.st span{color:var(--y)}
+.st.go span{color:#7CFF8B}
+.st.urg span{color:var(--r)}
+
+/* Choose path */
+.paths{display:flex;border-bottom:2px solid var(--k);min-height:440px}
+.path{flex:1;padding:44px 34px;display:flex;flex-direction:column;justify-content:space-between;gap:30px;transition:flex .6s cubic-bezier(.2,.9,.2,1),background .3s;cursor:pointer;position:relative;overflow:hidden}
+.path:first-child{border-right:2px solid var(--k);background:var(--y)}
+.path:last-child{background:var(--p)}
+.path:hover{flex:1.6}
+.path .mono{font-size:13px;letter-spacing:.08em}
+.path h2{font-size:clamp(52px,7vw,104px)}
+.path ul{list-style:none;font-size:17px;font-weight:500;max-width:380px}
+.path li{padding:9px 0;border-top:2px solid var(--k);display:flex;justify-content:space-between;gap:12px}
+.path .arrow{position:absolute;right:30px;top:36px;width:64px;height:64px;border:2px solid var(--k);border-radius:50%;display:grid;place-items:center;transition:transform .5s,background .3s}
+.path:hover .arrow{transform:rotate(-45deg);background:var(--k);color:var(--p)}
+
+/* Tickets (horizontal) */
+.sec{padding:90px 0}
+.sh{max-width:1240px;margin:0 auto;padding:0 22px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.sh h2{font-size:clamp(48px,7vw,100px)}
+.sh p{max-width:380px;font-size:17px}
+.nav-btns{display:flex;gap:8px}
+.nav-btns button{width:52px;height:52px;border:2px solid var(--k);background:transparent;cursor:pointer;font-size:20px;transition:background .2s}
+.nav-btns button:hover{background:var(--y)}
+.tix{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px 22px 20px max(22px,calc((100vw - 1240px)/2 + 22px));scrollbar-width:none}
+.tix::-webkit-scrollbar{display:none}
+.tk{flex:none;width:min(420px,84vw);scroll-snap-align:start;display:grid;grid-template-columns:1fr 92px;background:#fff;border:2px solid var(--k);position:relative}
+.tk .main{padding:26px 24px;border-right:2px dashed var(--k)}
+.tk .stub{display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:22px 0;background:var(--y)}
+.tk .stub .disp{font-size:62px}
+.tk .stub .mono{font-size:11px;writing-mode:vertical-rl;letter-spacing:.14em}
+.tk .lbl{font:600 11px "IBM Plex Mono";letter-spacing:.12em;color:var(--g)}
+.tk h3{font:700 26px/1.1 "Inter Tight";letter-spacing:-.02em;margin:8px 0 12px}
+.tk p{font-size:15px;color:#3A3A36}
+.tk .meta{display:flex;gap:24px;margin-top:22px;padding-top:14px;border-top:2px solid var(--k)}
+.tk .meta b{display:block;font:600 15px "IBM Plex Mono"}
+.tk::before,.tk::after{content:"";position:absolute;right:83px;width:18px;height:18px;border-radius:50%;background:var(--p);border:2px solid var(--k)}
+.tk::before{top:-10px;clip-path:inset(50% 0 0 0)}
+.tk::after{bottom:-10px;clip-path:inset(0 0 50% 0)}
+
+/* Numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);border-block:2px solid var(--k)}
+.nums div{padding:34px 22px;border-right:2px solid var(--k)}
+.nums div:last-child{border-right:0}
+.nums .disp{font-size:clamp(52px,6.5vw,104px);display:block;white-space:nowrap}
+.nums div{overflow:hidden}
+.nums span{font-weight:500}
+
+/* Sectors list */
+.sectors{max-width:1240px;margin:0 auto;padding:0 22px}
+.sx{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:2px solid var(--k);padding:14px 0;cursor:pointer;position:relative}
+.sx .disp{font-size:clamp(44px,7vw,92px);transition:transform .4s cubic-bezier(.2,.9,.2,1),color .3s}
+.sx .mono{font-size:14px;white-space:nowrap}
+.sx::before{content:"";position:absolute;inset:0;background:var(--y);transform:scaleY(0);transform-origin:bottom;transition:transform .35s cubic-bezier(.2,.9,.2,1);z-index:-1}
+.sx:hover::before{transform:scaleY(1)}
+.sx:hover .disp{transform:translateX(18px)}
+.sectors-wrap{position:relative;z-index:0}
+
+/* CV pass */
+.pass{max-width:1240px;margin:0 auto;padding:0 22px}
+.pass-in{display:grid;grid-template-columns:1.1fr 1fr;border:2px solid var(--k);background:var(--k);color:var(--p)}
+.pass-l{padding:46px 40px;border-right:2px dashed #555}
+.pass-l h2{font-size:clamp(52px,6.5vw,92px);color:var(--y)}
+.pass-l p{font-size:18px;margin-top:18px;color:#CFCFC8;max-width:420px}
+.pass-r{padding:40px;display:grid;gap:14px;align-content:center}
+.fld{border-bottom:2px solid #444;padding:8px 0}
+.fld label{font:600 11px "IBM Plex Mono";letter-spacing:.12em;color:#8A8A84;display:block}
+.fld input,.fld select{width:100%;background:transparent;border:0;color:#fff;font:500 18px "Inter Tight";padding:6px 0;outline:none}
+.fld select option{color:#000}
+.fld input[type=file]{color:#CFCFC8;font-size:14px}
+.fld input[type=file]::file-selector-button{background:transparent;color:var(--y);border:1.5px solid var(--y);font:600 13px 'IBM Plex Mono',monospace;padding:8px 12px;margin-right:12px;cursor:pointer}
+.fld:focus-within{border-color:var(--y)}
+.pass-r .cta{background:var(--y);color:var(--k);border-color:var(--y);justify-content:center;margin-top:10px}
+.pass-r .cta:hover{box-shadow:6px 6px 0 var(--p)}
+
+/* FAQ */
+.faq{max-width:1240px;margin:0 auto;padding:0 22px;display:grid;grid-template-columns:1fr 1.6fr;gap:40px}
+.faq h2{font-size:clamp(48px,6vw,88px)}
+details{border-top:2px solid var(--k);padding:20px 0}
+details:last-child{border-bottom:2px solid var(--k)}
+summary{list-style:none;cursor:pointer;font:700 20px "Inter Tight";display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:900 32px/0.8 "Big Shoulders Display";transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;font-size:17px;max-width:600px}
+
+/* Footer contact */
+.end{background:var(--y);border-top:2px solid var(--k);margin-top:90px}
+.end .w{max-width:1240px;margin:0 auto;padding:60px 22px 30px}
+.end h2{font-size:clamp(60px,12vw,180px)}
+.end-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:36px;border-top:2px solid var(--k)}
+.end-grid div{padding:20px 20px 0 0}
+.end-grid .mono{font-size:12px;letter-spacing:.12em}
+.end-grid p{font-size:18px;font-weight:600;margin-top:4px}
+.fine{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;font-size:14px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.9,.2,1),transform .8s cubic-bezier(.2,.9,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);visibility:hidden;background:#111311;color:#F4F4F0;padding:16px 20px;font-size:14px;max-width:min(520px,calc(100% - 32px));z-index:70;transition:transform .35s cubic-bezier(.2,.9,.2,1);border:2px solid var(--y)}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+.toast a{color:#A3E635;font-weight:700}
+
+@media (max-width:900px){
+.menu{display:none}
+.top{grid-template-columns:1fr auto}
+.hero-row{grid-template-columns:1fr}
+.row{grid-template-columns:1fr auto}
+.row>.c2,.row>.c3{display:none}
+.row{grid-template-columns:1fr;gap:6px}
+.row.hd span:last-child{display:none}
+.paths{flex-direction:column}
+.path:first-child{border-right:0;border-bottom:2px solid var(--k)}
+.path:hover{flex:1}
+.nums{grid-template-columns:1fr 1fr}
+.nums div:nth-child(2){border-right:0}
+.nums div:nth-child(-n+2){border-bottom:2px solid var(--k)}
+.pass-in{grid-template-columns:1fr}
+.pass-l{border-right:0;border-bottom:2px dashed #555}
+.faq{grid-template-columns:1fr}
+.end-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+.sbar .back{display:none}.sbar .txt{font-size:12px}
+.clock{font-size:12px;padding:0 14px}
+.logo{padding:0 14px}
+.hero{padding-top:36px}
+.hero-row p{font-size:18px}
+.path{padding:34px 22px}
+.path .arrow{width:50px;height:50px;right:20px;top:26px}
+.pass-l,.pass-r{padding:30px 22px}
+.sx .mono{display:none}
+.cells span{width:1.05em;font-size:12px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 .ln span{transform:none}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="sbar"><div class="w"><img src="../../logo.png" alt="Samvid logo"><span class="txt">Sample design by <b>Samvid</b></span><a class="back" href="../">Back to all designs</a><a class="mine" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20Junction%20Talent%20sample%20design%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20my%20business%3F">Make this mine</a></div></div>
+
+<div class="top">
+<a class="logo" href="#"><i>J</i>Junction Talent</a>
+<nav class="menu"><a href="#board">Live jobs</a><a href="#paths">Employers</a><a href="#journey">How it works</a><a href="#cv">Send CV</a><a href="#contact">Contact</a></nav>
+<div class="clock"><b></b><span id="clk">DEHRADUN 10:00</span></div>
+</div>
+
+<header class="hero">
+<h1 class="disp"><span class="ln"><span>Next stop:</span></span><span class="ln"><span><span class="hl">the right job.</span></span></span></h1>
+<div class="hero-row">
+<p>A recruitment agency that moves people, not paperwork. We place talent in hospitality, sales, IT and healthcare across [North India].</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><a class="cta" href="#board">See live jobs</a><button class="cta alt demo" data-msg="open a hiring request form">I am hiring</button></div>
+</div>
+</header>
+
+<section class="board" id="board"><div class="w">
+<div class="bh"><span class="disp">Now hiring</span><span class="mono">UPDATED LIVE &middot; TAP A ROW TO APPLY</span></div>
+<div class="row hd"><span>ROLE</span><span class="c2">CITY</span><span class="c3">SALARY</span><span>STATUS</span></div>
+<div id="rows"></div>
+</div></section>
+
+<section class="paths" id="paths">
+<div class="path demo" data-msg="open a hiring request form for employers">
+<div><span class="mono">GATE A &middot; FOR EMPLOYERS</span><h2 class="disp" style="margin-top:14px">I need<br>people.</h2></div>
+<div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<ul><li>Shortlist in 7 days <b>&rarr;</b></li><li>Checked and interviewed <b>&rarr;</b></li><li>Free replacement in [90] days <b>&rarr;</b></li></ul>
+</div>
+<div class="path demo" data-msg="take job seekers to the CV form">
+<div><span class="mono">GATE B &middot; FOR JOB SEEKERS</span><h2 class="disp" style="margin-top:14px">I need<br>a job.</h2></div>
+<div class="arrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+<ul><li>Zero fees, always <b>&rarr;</b></li><li>Interview prep before every round <b>&rarr;</b></li><li>Updates on WhatsApp <b>&rarr;</b></li></ul>
+</div>
+</section>
+
+<section class="sec" id="journey">
+<div class="sh rv"><h2 class="disp">Your journey</h2><div style="display:flex;gap:20px;align-items:end;flex-wrap:wrap"><p>Four stops from first call to first day. Swipe through.</p><div class="nav-btns"><button id="pv" aria-label="Previous">&larr;</button><button id="nx" aria-label="Next">&rarr;</button></div></div></div>
+<div class="tix" id="tix">
+<div class="tk"><div class="main"><span class="lbl">STOP 1 &middot; DAY 1</span><h3>We understand the role</h3><p>A 20 minute call on the job, the team and the budget.</p><div class="meta"><div><span class="lbl">FROM</span><b>YOU</b></div><div><span class="lbl">TO</span><b>BRIEF</b></div></div></div><div class="stub"><span class="mono">BOARDING</span><span class="disp">1</span></div></div>
+<div class="tk"><div class="main"><span class="lbl">STOP 2 &middot; DAY 2 TO 5</span><h3>We search and screen</h3><p>Our pool and network, filtered by tests and calls.</p><div class="meta"><div><span class="lbl">FROM</span><b>500+</b></div><div><span class="lbl">TO</span><b>20</b></div></div></div><div class="stub"><span class="mono">SCREENING</span><span class="disp">2</span></div></div>
+<div class="tk"><div class="main"><span class="lbl">STOP 3 &middot; DAY 7</span><h3>You get the shortlist</h3><p>3 to 5 strong profiles, each with our notes.</p><div class="meta"><div><span class="lbl">FROM</span><b>20</b></div><div><span class="lbl">TO</span><b>5</b></div></div></div><div class="stub"><span class="mono">SHORTLIST</span><span class="disp">3</span></div></div>
+<div class="tk"><div class="main"><span class="lbl">STOP 4 &middot; ARRIVAL</span><h3>Offer and first day</h3><p>We handle follow-ups until the person joins.</p><div class="meta"><div><span class="lbl">FROM</span><b>5</b></div><div><span class="lbl">TO</span><b>1 HIRE</b></div></div></div><div class="stub"><span class="mono">ARRIVED</span><span class="disp">4</span></div></div>
+</div>
+</section>
+
+<section class="nums rv">
+<div><span class="disp cnt" data-to="1200" data-suf="+">0</span><span>people placed</span></div>
+<div><span class="disp cnt" data-to="7" data-suf="">0</span><span>days to shortlist</span></div>
+<div><span class="disp cnt" data-to="92" data-suf="%">0</span><span>still in role at 6 months</span></div>
+<div><span class="disp cnt" data-to="120" data-suf="+">0</span><span>employers served</span></div>
+</section>
+
+<section class="sec"><div class="sh rv" style="margin-bottom:30px"><h2 class="disp">Routes we run</h2><p>Sectors where our network runs deepest.</p></div>
+<div class="sectors-wrap"><div class="sectors">
+<div class="sx demo rv" data-msg="show all jobs in this sector"><span class="disp">Hospitality</span><span class="mono">[18] OPEN ROLES</span></div>
+<div class="sx demo rv" data-msg="show all jobs in this sector"><span class="disp">Sales and retail</span><span class="mono">[12] OPEN ROLES</span></div>
+<div class="sx demo rv" data-msg="show all jobs in this sector"><span class="disp">IT and software</span><span class="mono">[9] OPEN ROLES</span></div>
+<div class="sx demo rv" data-msg="show all jobs in this sector"><span class="disp">Healthcare</span><span class="mono">[9] OPEN ROLES</span></div>
+</div></div></section>
+
+<section class="pass" id="cv"><div class="pass-in rv">
+<div class="pass-l"><span class="mono" style="font-size:12px;letter-spacing:.12em;color:#8A8A84">YOUR BOARDING PASS</span><h2 class="disp" style="margin-top:12px">Send your CV.<br>We do the running.</h2><p>Tell us where you want to go. We call you when a role fits. No fees, no spam.</p></div>
+<form class="pass-r" id="cvf">
+<div class="fld"><label for="n">PASSENGER NAME</label><input id="n" placeholder="Your full name"></div>
+<div class="fld"><label for="d">DESTINATION ROLE</label><input id="d" placeholder="e.g. Front Office Executive"></div>
+<div class="fld"><label for="s">SECTOR</label><select id="s"><option>Hospitality</option><option>Sales and retail</option><option>IT and software</option><option>Healthcare</option></select></div>
+<div class="fld"><label for="f">CV FILE</label><input id="f" type="file" accept=".pdf,.doc,.docx"></div>
+<button class="cta" type="submit">Board now &rarr;</button>
+</form>
+</div></section>
+
+<section class="sec"><div class="faq">
+<h2 class="disp rv">Good<br>to know</h2>
+<div class="rv">
+<details><summary>Do candidates pay anything?</summary><p>No. The employer pays our fee. Job seekers never pay.</p></details>
+<details><summary>How fast is the shortlist?</summary><p>Most roles in 7 working days. Urgent roles can be faster.</p></details>
+<details><summary>What if a hire leaves early?</summary><p>We replace them free within [90] days.</p></details>
+<details><summary>Do you work with small businesses?</summary><p>Yes. Many clients hire one or two people at a time.</p></details>
+</div>
+</div></section>
+
+<footer class="end" id="contact"><div class="w">
+<h2 class="disp">Let's talk<br>hiring.</h2>
+<div class="end-grid">
+<div><span class="mono">OFFICE</span><p>[Your full address]</p></div>
+<div><span class="mono">CALL OR WHATSAPP</span><p>[Your phone number]</p></div>
+<div><span class="mono">HOURS</span><p>Mon to Sat, 10 am to 7 pm</p></div>
+</div>
+<div class="fine"><span>Junction Talent is a sample business. Names, numbers and details are placeholders.</span><span>Designed by <a href="../../">Samvid</a></span></div>
+</div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+{
+const link='https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20the%20Junction%20Talent%20sample%20design%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20my%20business%3F';
+const t=document.getElementById('toast');let th;
+function say(msg){t.innerHTML='On your website, this will '+msg+'. <a href="'+link+'">Make this mine</a>';t.classList.add('show');clearTimeout(th);th=setTimeout(()=>t.classList.remove('show'),4500);}
+document.addEventListener('click',e=>{const d=e.target.closest('.demo,.row:not(.hd)');if(d)say(d.dataset.msg||'open this job and let candidates apply on WhatsApp');});
+document.getElementById('cvf').addEventListener('submit',e=>{e.preventDefault();say('send the CV straight to your inbox and Google Sheet');});
+
+const clk=document.getElementById('clk');
+const tick=()=>{const d=new Date();clk.textContent='DEHRADUN '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');};tick();setInterval(tick,20000);
+
+const jobs=[
+['FRONT OFFICE EXEC','DEHRADUN','3-4 LPA','BOARDING','go'],
+['AREA SALES MANAGER','HARIDWAR','6-8 LPA','INTERVIEW',''],
+['FRONTEND DEVELOPER','REMOTE','5-9 LPA','URGENT','urg'],
+['STAFF NURSE ICU','RISHIKESH','3-5 LPA','SHORTLIST',''],
+['CHEF DE PARTIE','MUSSOORIE','4-5 LPA','BOARDING','go'],
+['SHOWROOM SALES','DEHRADUN','3 LPA','URGENT','urg'],
+['HR EXECUTIVE','ROORKEE','3-4 LPA','INTERVIEW',''],
+['SPA THERAPIST','RISHIKESH','3-4 LPA','BOARDING','go'],
+['ACCOUNTANT','DEHRADUN','3-5 LPA','SHORTLIST','']];
+const W=[18,10,8,9];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const CH='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-';
+const rows=document.getElementById('rows');
+const show=5;let idx=show;
+function cellsHtml(n){return '<span></span>'.repeat(n);}
+for(let i=0;i<show;i++){
+const r=document.createElement('div');r.className='row';
+r.innerHTML='<div class="cells">'+cellsHtml(W[0])+'</div><div class="cells c2">'+cellsHtml(W[1])+'</div><div class="cells c3">'+cellsHtml(W[2])+'</div><div class="cells st">'+cellsHtml(W[3])+'</div>';
+rows.appendChild(r);setRow(r,jobs[i],i*120);}
+function flip(span,ch,delay){
+if(reduce){span.textContent=ch;return;}
+let n=0;const steps=6+Math.floor(Math.random()*6);
+setTimeout(function go(){if(n<steps){span.textContent=CH[Math.floor(Math.random()*CH.length)];n++;setTimeout(go,45);}else span.textContent=ch;},delay);}
+function setRow(r,j,base){
+const groups=r.querySelectorAll('.cells');
+groups[3].className='cells st'+(j[4]?' '+j[4]:'');
+groups.forEach((g,gi)=>{const txt=j[gi].padEnd(W[gi],' ').slice(0,W[gi]);g.querySelectorAll('span').forEach((s,ci)=>flip(s,txt[ci]===' '?'':txt[ci],base+ci*25));});}
+let rr=0;
+setInterval(()=>{const r=rows.children[rr%show];setRow(r,jobs[idx%jobs.length],0);idx++;rr++;},3200);
+
+const tix=document.getElementById('tix');
+const by=d=>()=>tix.scrollBy({left:d*(tix.querySelector('.tk').offsetWidth+20),behavior:'smooth'});
+document.getElementById('pv').addEventListener('click',by(-1));document.getElementById('nx').addEventListener('click',by(1));
+
+function count(el){const to=+el.dataset.to,suf=el.dataset.suf;let s0=null;
+const f=ts=>{if(!s0)s0=ts;const p=Math.min((ts-s0)/1500,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(to*e).toLocaleString('en-IN')+suf;if(p<1)requestAnimationFrame(f);};requestAnimationFrame(f);}
+if('IntersectionObserver' in window){
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');e.target.querySelectorAll('.cnt').forEach(count);io.unobserve(e.target);}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));document.querySelectorAll('.cnt').forEach(count);}
+}
+</script>
+</body>
+</html>

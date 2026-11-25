@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hill Gazette | Sample design by Samvid</title>
+<meta name="description" content="A sample blog website designed by Samvid, styled like a printed hill-town newspaper. Like it? Samvid can make one for you.">
+<link rel="icon" href="../../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,800;1,6..72,400;1,6..72,600&family=Libre+Franklin:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F4EFE4;--ink:#1A1814;--soft:#5E584D;--rule:#1A1814;--red:#B3261E;--tint:#E9E1D0}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 18px/1.6 Newsreader,Georgia,serif;overflow-x:clip}
+a{color:inherit}
+.sans{font-family:"Libre Franklin",system-ui,sans-serif}
+.w{max-width:1200px;margin:0 auto;padding:0 22px}
+
+.sbar{position:fixed;top:0;left:0;right:0;z-index:60;background:#111311;color:#F4F4F0;font:500 13px Inter,system-ui,sans-serif;border-bottom:1px solid rgba(255,255,255,.12)}
+.sbar .w{display:flex;align-items:center;gap:12px;min-height:52px;flex-wrap:wrap}
+.sbar img{width:26px;height:26px;border-radius:7px}
+.sbar a{color:#F4F4F0;text-decoration:none}
+.sbar .mine{margin-left:auto;background:#A3E635;color:#111311;font-weight:700;padding:8px 14px;border-radius:8px}
+.sbar .back{color:#A9ADA6}
+.prog{position:fixed;top:52px;left:0;height:3px;width:0;background:var(--red);z-index:61}
+
+/* Masthead */
+.mast{padding-top:76px;text-align:center}
+.edrow{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:600 12px "Libre Franklin";letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--rule);padding-bottom:10px}
+.title{font-family:UnifrakturMaguntia,serif;font-size:clamp(54px,10.5vw,138px);line-height:1;padding:18px 0 8px;letter-spacing:.01em;opacity:0;animation:ink 1.4s .1s forwards}
+@keyframes ink{from{opacity:0;filter:blur(6px);letter-spacing:.12em}to{opacity:1;filter:none;letter-spacing:.01em}}
+.motto{font-style:italic;color:var(--soft);font-size:17px;margin-bottom:12px}
+.dbl{border-top:3px double var(--rule);border-bottom:1px solid var(--rule);display:flex;justify-content:center;gap:28px;flex-wrap:wrap;padding:10px 0;font:600 13px "Libre Franklin";letter-spacing:.06em;text-transform:uppercase}
+.dbl a{text-decoration:none}
+.dbl a:hover{color:var(--red)}
+
+/* Ticker */
+.tick{display:flex;border-bottom:1px solid var(--rule);overflow:hidden;font:600 14px "Libre Franklin"}
+.tick b{position:relative;z-index:1;background:var(--red);color:#fff;padding:9px 14px;flex:none;letter-spacing:.06em;text-transform:uppercase;font-size:12px;display:flex;align-items:center}
+.tick .tr{flex:none;width:max-content;display:flex;gap:44px;white-space:nowrap;padding:9px 0 9px 30px;animation:tk 40s linear infinite}
+.tick:hover .tr{animation-play-state:paused}
+.tick .tr span{flex:none}
+@keyframes tk{to{transform:translateX(-50%)}}
+
+/* Front page */
+.front{display:grid;grid-template-columns:1.9fr 1fr;gap:0;margin-top:26px}
+.lead{padding-right:28px;border-right:1px solid var(--rule)}
+.kick{font:800 12px "Libre Franklin";letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.lead h1{font-weight:800;font-size:clamp(38px,5.4vw,70px);line-height:1;letter-spacing:-.02em;margin:10px 0 14px}
+.dek{font-style:italic;font-size:22px;color:var(--soft);line-height:1.35;margin-bottom:16px}
+.by{font:600 13px "Libre Franklin";letter-spacing:.04em;text-transform:uppercase;border-block:1px solid var(--rule);padding:8px 0;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.figure{margin:20px 0 8px;aspect-ratio:16/8;background:radial-gradient(circle at 76% 28%,#F8E7C4 0 6%,transparent 7%),linear-gradient(180deg,#C9CCC4 0%,#E3DFD2 46%,#8F9A8A 47%,#5D6B5C 66%,#3A453B 100%);filter:grayscale(.55) contrast(1.05);position:relative;overflow:hidden}
+.figure::after{content:"";position:absolute;inset:0;background:radial-gradient(rgba(0,0,0,.28) 1px,transparent 1.4px) 0 0/4px 4px;mix-blend-mode:multiply}
+.figcap{font:400 13px "Libre Franklin";color:var(--soft);margin-bottom:18px}
+.cols{columns:2;column-gap:28px;column-rule:1px solid #CFC6B3;text-align:justify;hyphens:auto}
+.cols p{margin-bottom:12px}
+.cols p:first-child::first-letter{float:left;font:800 82px/.8 Newsreader;padding:6px 8px 0 0;color:var(--red)}
+.more{display:inline-block;margin-top:6px;font:800 13px "Libre Franklin";letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--red)}
+
+.side{padding-left:28px}
+.side .st{padding:16px 0;border-bottom:1px solid #CFC6B3;cursor:pointer}
+.side .st:first-child{padding-top:0}
+.side h3{font-weight:700;font-size:23px;line-height:1.15;margin:6px 0;transition:color .2s}
+.side .st:hover h3{color:var(--red)}
+.side p{font-size:16px;color:var(--soft)}
+.box{border:2px solid var(--ink);padding:18px;margin-top:20px;background:var(--tint)}
+.box h4{font:800 13px "Libre Franklin";letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:8px;margin-bottom:10px}
+.mr{list-style:none;counter-reset:m}.mr li{counter-increment:m;display:grid;grid-template-columns:34px 1fr;gap:6px;padding:9px 0;border-top:1px solid #CFC6B3;font:700 17px/1.25 Newsreader,serif;cursor:pointer}.mr li:first-child{border-top:0}.mr li::before{content:counter(m);font:800 26px/1 Newsreader,serif;color:var(--red)}.mr li:hover{color:var(--red)}
+.wx{display:flex;justify-content:space-between;font:600 15px "Libre Franklin";padding:5px 0}
+
+/* Section banner */
+.band{margin-top:56px;border-top:3px double var(--rule);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;padding:10px 0;gap:14px;flex-wrap:wrap}
+.band h2{font:800 30px Newsreader;letter-spacing:-.01em}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--ink);background:transparent;font:600 13px "Libre Franklin";padding:8px 12px;cursor:pointer;letter-spacing:.04em;text-transform:uppercase}
+.tabs button.on,.tabs button:hover{background:var(--ink);color:var(--paper)}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:44px;margin-top:22px}
+.card{padding:0 0 30px;cursor:pointer;position:relative}
+.card::after{content:"";position:absolute;top:0;bottom:30px;right:-22px;width:1px;background:#CFC6B3}
+.card:nth-child(3n)::after{display:none}
+.card .img{aspect-ratio:3/2;margin-bottom:12px;filter:grayscale(.45);transition:filter .5s;position:relative;overflow:hidden}
+.card .img::after{content:"";position:absolute;inset:0;background:radial-gradient(rgba(0,0,0,.25) 1px,transparent 1.4px) 0 0/4px 4px;mix-blend-mode:multiply}
+.card:hover .img{filter:none}
+.card h3{font-weight:700;font-size:24px;line-height:1.15;margin:6px 0 8px}
+.card:hover h3{text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px}
+.card p{font-size:16px;color:var(--soft)}
+.card .meta{font:600 12px "Libre Franklin";color:var(--soft);margin-top:10px;text-transform:uppercase;letter-spacing:.06em}
+.card.hide{display:none}
+.i1{background:linear-gradient(180deg,#E8C9A0,#C98B5B 55%,#6E4A33)}
+.i2{background:radial-gradient(circle at 30% 40%,#F2E6C9 0 12%,transparent 13%),linear-gradient(135deg,#7A8F6E,#3D4F38)}
+.i3{background:repeating-linear-gradient(0deg,#D9CBB0 0 12px,#CDBD9F 12px 24px)}
+.i4{background:linear-gradient(180deg,#A9BFCB,#E5E1D3 50%,#8C8673 51%,#4F4A3D)}
+.i5{background:radial-gradient(circle at 50% 60%,#C2532F 0 22%,transparent 23%),linear-gradient(#EFE3CC,#D8C7A6)}
+.i6{background:linear-gradient(160deg,#2F3B4A,#5E6F7E 60%,#C9B79A)}
+
+/* Opinion quote */
+.op{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;border-block:1px solid var(--rule);padding:34px 0}
+.op .q{font:800 140px/.7 Newsreader;color:var(--red)}
+.op p{font:italic 600 clamp(26px,3.4vw,42px)/1.2 Newsreader}
+.op span{display:block;margin-top:12px;font:600 13px "Libre Franklin";letter-spacing:.06em;text-transform:uppercase;color:var(--soft)}
+
+/* Subscribe */
+.sub{margin:56px 0;background:var(--ink);color:var(--paper);padding:44px;display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:center}
+.sub h2{font:800 clamp(32px,4vw,52px)/1.05 Newsreader}
+.sub p{color:#CFC6B3;margin-top:10px;font-size:17px}
+.sub form{display:flex;border:2px solid var(--paper)}
+.sub input{flex:1;background:transparent;border:0;color:var(--paper);font:400 17px "Libre Franklin";padding:16px;outline:none}
+.sub button{background:var(--red);color:#fff;border:0;font:800 13px "Libre Franklin";letter-spacing:.08em;text-transform:uppercase;padding:0 22px;cursor:pointer}
+.sub button:hover{background:var(--paper);color:var(--ink)}
+
+footer{border-top:3px double var(--rule);padding:22px 0 30px;font:400 14px "Libre Franklin";color:var(--soft)}
+footer .w{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.9,.2,1)}
+.rv.on{opacity:1;transform:none}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);visibility:hidden;background:#111311;color:#F4F4F0;padding:16px 20px;font:400 14px "Libre Franklin";max-width:min(520px,calc(100% - 32px));z-index:90;transition:transform .35s}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+.toast a{color:#A3E635;font-weight:700}
+
+@media (max-width:900px){
+.front{grid-template-columns:1fr}
+.lead{padding-right:0;border-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px;margin-bottom:24px}
+.side{padding-left:0}
+.grid{grid-template-columns:1fr 1fr}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px}.card::after{right:-14px}.card:nth-child(3n)::after{display:block}.card:nth-child(2n)::after{display:none}
+.sub{grid-template-columns:1fr;padding:30px 24px}
+}
+@media (max-width:560px){
+.sbar .back{display:none}.sbar .txt{font-size:12px}
+.cols{columns:1}
+.grid{grid-template-columns:1fr}
+.card{padding:0 0 24px;border-bottom:1px solid #CFC6B3;margin-bottom:20px}.card::after{display:none!important}
+.dbl{gap:12px;font-size:11px;letter-spacing:.04em}
+.sub form{flex-direction:column}.sub button{padding:15px}
+.edrow span:nth-child(2){display:none}
+.op{grid-template-columns:1fr;gap:0}.op .q{font-size:100px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.title{opacity:1}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="sbar"><div class="w"><img src="../../logo.png" alt="Samvid logo"><span class="txt">Sample design by <b>Samvid</b></span><a class="back" href="../">Back to all designs</a><a class="mine" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20The%20Hill%20Gazette%20blog%20sample%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20me%3F">Make this mine</a></div></div>
+<div class="prog" id="prog"></div>
+
+<header class="mast"><div class="w">
+<div class="edrow"><span id="date">Wednesday, 25 November 2026</span><span>Vol. [IV] &middot; No. [212]</span><span>Dehradun Edition</span></div>
+<div class="title">The Hill Gazette</div>
+<div class="motto">Stories, food and slow travel from the mountains. Written by hand, read with chai.</div>
+<nav class="dbl"><a href="#latest">Latest</a><a href="#latest" data-jump="trv">Travel</a><a href="#latest" data-jump="food">Food</a><a href="#latest" data-jump="life">Hill life</a><a href="#subscribe">Subscribe</a></nav>
+</div></header>
+
+<div class="w"><div class="tick"><b>Fresh</b><div class="tr" id="tr"></div></div></div>
+
+<main class="w">
+<section class="front">
+<article class="lead rv">
+<span class="kick">Cover story &middot; Travel</span>
+<h1>Seven days, one rucksack, and the slowest road to Chopta</h1>
+<p class="dek">Why taking the long way through small villages beat every viewpoint on the map.</p>
+<div class="by"><span>By [Author name]</span><span>9 minute read</span></div>
+<div class="figure" role="img" aria-label="Placeholder drawing of mountains"></div>
+<p class="figcap">Morning over the ridge. Your own photo goes here.</p>
+<div class="cols">
+<p>The bus from Rishikesh left forty minutes late, which turned out to be the most useful thing that happened all week. It meant the driver stopped for tea in a village I had never heard of, and the lady at the stall told me about a trail her grandfather used.</p>
+<p>That trail did not appear on any map. It took two days longer than the road. It was also the only part of the trip I still think about every morning.</p>
+<p>This is a story about saying yes to slow detours, sleeping in homestays, and eating whatever the family is eating.</p>
+</div>
+<a class="more demo" href="#" data-msg="open the full article on its own page">Continue reading &rarr;</a>
+</article>
+
+<aside class="side">
+<div class="st rv demo" data-msg="open this article"><span class="kick">Food</span><h3>The only aloo ke gutke recipe you need this winter</h3><p>Three spices, one cast iron pan, no shortcuts.</p></div>
+<div class="st rv demo" data-msg="open this article"><span class="kick">Hill life</span><h3>What I learned living a month in Landour</h3><p>Fog, books, and a bakery that opens when it wants.</p></div>
+<div class="st rv demo" data-msg="open this article"><span class="kick">Guide</span><h3>Five quiet cafes in Dehradun for working days</h3><p>Plug points, good coffee and no loud music.</p></div>
+<div class="box rv"><h4>Today in the hills</h4><div class="wx"><span>Dehradun</span><span>[22&deg; / 9&deg;]</span></div><div class="wx"><span>Mussoorie</span><span>[14&deg; / 4&deg;]</span></div><div class="wx"><span>Chopta</span><span>[6&deg; / -3&deg;]</span></div></div>
+<div class="box rv"><h4>Most read this week</h4><ol class="mr"><li class="demo" data-msg="open this article">Kedarkantha in winter, without the crowd</li><li class="demo" data-msg="open this article">The only aloo ke gutke recipe you need</li><li class="demo" data-msg="open this article">A night train guide to the mountains</li><li class="demo" data-msg="open this article">Five quiet cafes in Dehradun</li></ol></div>
+</aside>
+</section>
+
+<section id="latest">
+<div class="band rv"><h2>Latest dispatches</h2><div class="tabs" id="tabs"><button class="on" data-f="all">All</button><button data-f="trv">Travel</button><button data-f="food">Food</button><button data-f="life">Hill life</button></div></div>
+<div class="grid">
+<div class="card rv demo" data-c="trv" data-msg="open this article"><div class="img i4"></div><span class="kick">Travel</span><h3>Kedarkantha in winter, without the crowd</h3><p>When to go, what to pack, and the campsite most people skip.</p><div class="meta">6 min read</div></div>
+<div class="card rv demo" data-c="food" data-msg="open this article"><div class="img i1"></div><span class="kick">Food</span><h3>Bal mithai, and the shop that has made it since [1952]</h3><p>A sweet history from Almora.</p><div class="meta">4 min read</div></div>
+<div class="card rv demo" data-c="life" data-msg="open this article"><div class="img i3"></div><span class="kick">Hill life</span><h3>Why every hill home has a wooden window seat</h3><p>Architecture built around winter sun.</p><div class="meta">5 min read</div></div>
+<div class="card rv demo" data-c="trv" data-msg="open this article"><div class="img i6"></div><span class="kick">Travel</span><h3>A night train guide to the mountains</h3><p>Routes, coaches and the best berth to book.</p><div class="meta">7 min read</div></div>
+<div class="card rv demo" data-c="food" data-msg="open this article"><div class="img i5"></div><span class="kick">Food</span><h3>Bhatt ki churkani, slow cooked on a Sunday</h3><p>The black soybean curry grandmothers swear by.</p><div class="meta">5 min read</div></div>
+<div class="card rv demo" data-c="life" data-msg="open this article"><div class="img i2"></div><span class="kick">Hill life</span><h3>Starting a kitchen garden at 2,000 metres</h3><p>What grows, what fails, and what the monkeys steal.</p><div class="meta">6 min read</div></div>
+</div>
+</section>
+
+<section class="op rv"><div class="q">&ldquo;</div><div><p>Travel slower. The places you rush past are usually the ones you will remember.</p><span>From the editor's note</span></div></section>
+
+<section class="sub rv" id="subscribe">
+<div><h2>Get the Sunday letter</h2><p>One story, one recipe and one trail, every Sunday morning. Free, and easy to leave.</p></div>
+<form id="sf"><input type="email" placeholder="Your email address" aria-label="Email address"><button type="submit">Subscribe</button></form>
+</section>
+</main>
+
+<footer><div class="w"><span>The Hill Gazette is a sample blog. Names, stories and details are placeholders.</span><span>Designed by <a href="../../">Samvid</a></span></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+{
+const link='https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20saw%20The%20Hill%20Gazette%20blog%20sample%20on%20samvidstudio.com.%20Can%20you%20make%20one%20for%20me%3F';
+const t=document.getElementById('toast');let th;
+const say=m=>{t.innerHTML='On your website, this will '+m+'. <a href="'+link+'">Make this mine</a>';t.classList.add('show');clearTimeout(th);th=setTimeout(()=>t.classList.remove('show'),4500);};
+document.querySelectorAll('.demo').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();say(b.dataset.msg);}));
+document.getElementById('sf').addEventListener('submit',e=>{e.preventDefault();say('add the reader to your mailing list in Google Sheets');});
+
+try{document.getElementById('date').textContent=new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}catch(e){}
+
+const heads=['Snow expected above 2,500 m this weekend','New homestay trail opens near Chakrata','Recipe: winter jhangora kheer','Reader letters: your favourite chai stops','Photo walk this Sunday in Rajpur'];
+document.getElementById('tr').innerHTML=[...heads,...heads].map(h=>'<span>'+h+'</span>').join('');
+
+const prog=document.getElementById('prog');
+addEventListener('scroll',()=>{const h=document.documentElement;prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+
+const filter=f=>{document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.f===f));document.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.c!==f));};
+document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>filter(b.dataset.f)));
+document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>filter(a.dataset.jump)));
+
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>io.observe(el));}
+else document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+}
+</script>
+</body>
+</html>

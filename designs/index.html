@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Library | Samvid</title>
+<meta name="description" content="Browse every Samvid website design: businesses, creators, personal sites and events. Preview any design live and make it yours.">
+<link rel="canonical" href="https://samvidstudio.com/designs/">
+<link rel="icon" type="image/png" href="../logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Big+Shoulders+Display:wght@900&family=Syne:wght@800&family=Newsreader:wght@800&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#111311;--card:#1B1E1B;--ink:#F4F4F0;--dim:#A9ADA6;--lime:#A3E635;--lime2:#C8F27A;--line:rgba(255,255,255,.12)}
+*{box-sizing:border-box;margin:0;padding:0;min-width:0}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.w{max-width:1240px;margin:0 auto;padding:0 24px}
+header .w{display:flex;align-items:center;gap:14px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:40px;height:40px;border-radius:10px;border:1px solid var(--line)}
+.brand span{font:800 20px 'Plus Jakarta Sans',sans-serif;letter-spacing:4px}
+header nav{margin-left:auto;display:flex;gap:20px;align-items:center;flex-wrap:wrap;font-size:15px}
+header nav a{color:var(--dim);text-decoration:none}
+header nav a:hover{color:var(--ink)}
+.wa{background:var(--lime);color:#111311!important;font-weight:700;padding:12px 18px;border-radius:10px}
+
+.hero{padding:40px 0 30px}
+.kick{color:var(--lime2);font-weight:600;font-size:15px}
+h1{font:800 clamp(40px,6vw,72px)/1.02 'Plus Jakarta Sans',sans-serif;letter-spacing:-2px;margin:12px 0 16px}
+h1 span{color:var(--lime)}
+.lead{font-size:19px;color:var(--dim);max-width:640px}
+
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0 26px;position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0}
+.chip{min-height:46px;padding:0 20px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:transparent;color:var(--ink);font:600 15px Inter,sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px}
+.chip b{font-size:12px;color:var(--dim);font-weight:600}
+.chip[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:#111311}
+.chip[aria-pressed="true"] b{color:#111311}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.card:hover{transform:translateY(-6px);border-color:rgba(163,230,53,.5)}
+.card[hidden]{display:none}
+.thumb{height:210px;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.thumb .in{position:absolute;inset:0;padding:20px 22px;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+.card:hover .thumb .in{transform:scale(1.04)}
+.tag{position:absolute;top:12px;right:12px;z-index:2;font:700 11px Inter;background:#111311;color:var(--lime);padding:5px 10px;border-radius:99px;border:1px solid rgba(163,230,53,.4)}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:13px;color:var(--lime2);font-weight:600}
+.body h3{font:800 22px 'Plus Jakarta Sans',sans-serif;letter-spacing:-.4px}
+.body p{color:var(--dim);font-size:15px}
+.acts{display:flex;gap:10px;margin-top:auto;padding-top:14px}
+.acts a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:15px;padding:13px 10px;border-radius:12px}
+.pv{border:1px solid rgba(255,255,255,.22)}
+.pv:hover{border-color:var(--ink)}
+.mk{background:var(--lime);color:#111311}
+
+.soon[hidden]{display:none}
+.soon{border:1.5px dashed rgba(255,255,255,.2);border-radius:22px;padding:30px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-height:300px}
+.soon h3{font:800 22px 'Plus Jakarta Sans',sans-serif}
+.soon p{color:var(--dim)}
+.soon a{align-self:start;color:var(--lime);font-weight:700;text-decoration:none}
+
+.cta{margin:70px 0 40px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:40px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cta h2{font:800 clamp(26px,3.4vw,40px)/1.1 'Plus Jakarta Sans',sans-serif;letter-spacing:-1px;max-width:620px}
+.cta p{color:var(--dim);margin-top:8px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--dim);font-size:14px}
+footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s cubic-bezier(.2,.9,.2,1)}
+.rv.on{opacity:1;transform:none}
+@media (max-width:600px){header nav a:not(.wa){display:none}.cta{padding:28px 22px}.chips{margin-top:20px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="w">
+<a class="brand" href="../"><img src="../logo.png" alt="Samvid logo"><span>SAMVID</span></a>
+<nav><a href="../">Home</a><a href="../#tools">Smart Tools</a><a href="../#free">Free Tools</a><a class="wa" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20am%20browsing%20the%20Samvid%20Design%20Library.">Chat on WhatsApp</a></nav>
+</div></header>
+
+<main class="w">
+<section class="hero">
+<div class="kick">Design Library</div>
+<h1>Find a website that <span>feels like you.</span></h1>
+<p class="lead">Every design here is a real, working website. Open any one, click around, and if you like it, we make it yours with your name, photos and prices.</p>
+</section>
+
+<div class="chips" role="group" aria-label="Filter designs" id="chips"></div>
+<div class="grid" id="grid"></div>
+
+<section class="cta rv">
+<div><h2>Don't see your kind of website?</h2><p>Tell us what you do. We will make a free sample design just for you.</p></div>
+<a class="mk" style="text-decoration:none;font-weight:700;padding:16px 24px;border-radius:12px" href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20would%20like%20a%20free%20sample%20design.%20I%20do%3A%20">Ask for a free sample</a>
+</section>
+</main>
+
+<footer><div class="w"><span>All designs use sample names and placeholder details.</span><span>&copy; Samvid &middot; samvidstudio.com</span></div></footer>
+
+<script>
+{
+const WA=n=>'https://wa.me/918193968270?text='+encodeURIComponent('Namaste Amit ji, I liked the '+n+' design on samvidstudio.com. Can you make one for me?');
+const D=[
+{id:'recruitment',g:'business',cat:'Recruitment agency',name:'Junction Talent',p:'For agencies that want employers and job seekers to find them first.',isNew:1,
+ t:'<div class="in" style="background:#F2F0EA;color:#0E0E0E"><div style="font:900 46px/1 \'Big Shoulders Display\',Impact,sans-serif;text-transform:uppercase">Next stop:<br><span style="background:#FFD23F;padding:0 6px;display:inline-block;margin-top:4px">the right job.</span></div><div style="position:absolute;left:0;right:0;bottom:0;background:#0E0E0E;color:#FFD23F;padding:12px 22px;font:600 12px monospace;letter-spacing:.1em">FRONT OFFICE EXEC &nbsp; <span style="color:#7CFF8B">BOARDING</span></div></div>'},
+{id:'portfolio',g:'creator',cat:'Photographer portfolio',name:'Lightfold Studio',p:'For photographers and creators whose work should speak first.',isNew:1,
+ t:'<div class="in" style="background:#141210;color:#EDE6DA"><div style="font:800 34px/1.02 Syne,sans-serif;letter-spacing:-1px">Light,<br><span style="-webkit-text-stroke:1.5px #EDE6DA;color:transparent">folded</span> <span style="color:#E5383B">stories.</span></div><div style="position:absolute;left:22px;right:22px;bottom:16px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:6px;height:48px"><i style="background:linear-gradient(#F8D9B0,#E68A5C 60%,#7E3B2E)"></i><i style="background:linear-gradient(#9EC3D6,#D9E4E6 50%,#2F4A3D 51%)"></i><i style="background:linear-gradient(#1B2440,#C46B5E)"></i></div></div>'},
+{id:'blogger',g:'creator',cat:'Blog website',name:'The Hill Gazette',p:'For writers and creators who want readers to come back.',isNew:1,
+ t:'<div class="in" style="background:#F4EFE4;color:#1A1814;text-align:center"><div style="font:600 10px Inter;letter-spacing:.1em;border-bottom:1px solid #1A1814;padding-bottom:6px">WEDNESDAY EDITION</div><div style="font:400 40px/1.1 UnifrakturMaguntia,Georgia,serif;margin:8px 0">The Hill Gazette</div><div style="border-top:3px double #1A1814;padding-top:10px;text-align:left;font:800 19px/1.1 Newsreader,Georgia,serif">Seven days, one rucksack, and the slowest road to Chopta</div></div>'},
+{id:'cafe',g:'business',cat:'Cafe website',name:'Brew and Bloom',p:'For cafes that want tables full on weekdays too.',
+ t:'<div class="in" style="background:#FBF6EE;color:#3B2417"><div style="font:800 14px \'Plus Jakarta Sans\'">Brew <span style="color:#3F6B4A">&amp;</span> Bloom</div><div style="font:800 38px/1 \'Plus Jakarta Sans\';letter-spacing:-1px;margin-top:16px">Slow coffee.<br><span style="color:#3F6B4A">Warm</span> corners.</div><div style="position:absolute;right:22px;bottom:18px;background:#3F6B4A;color:#fff;font:700 12px Inter;padding:9px 12px;border-radius:8px">Order on WhatsApp</div></div>'},
+{id:'clinic',g:'business',cat:'Clinic website',name:'CareWell Clinic',p:'For clinics that want fewer missed appointments.',
+ t:'<div class="in" style="background:#F4F7FB;color:#0F172A"><div style="font:800 14px \'Plus Jakarta Sans\'">CareWell <span style="color:#0F4C81">Clinic</span></div><div style="font:800 38px/1 \'Plus Jakarta Sans\';letter-spacing:-1px;margin-top:16px">Care that<br><span style="color:#0F4C81">remembers</span> you.</div><div style="position:absolute;right:22px;bottom:18px;display:flex;gap:6px;font:600 11px Inter"><span style="border:1px solid #CBD5E1;padding:7px 9px;border-radius:6px">9:30</span><span style="background:#0F4C81;color:#fff;padding:7px 9px;border-radius:6px">10:00</span></div></div>'},
+{id:'dealer',g:'business',cat:'Vehicle dealer website',name:'TrailRide',p:'For dealers whose buyers live in other cities.',
+ t:'<div class="in" style="background:#0B0F0A;color:#F4F4F0"><div style="font:800 14px \'Plus Jakarta Sans\'">TRAIL<span style="color:#7CFC3A">RIDE</span></div><div style="font:800 38px/1 \'Plus Jakarta Sans\';letter-spacing:-1px;margin-top:16px">Ride anything.<br><span style="color:#7CFC3A">Delivered</span> to you.</div></div>'},
+{id:'gym',g:'business',cat:'Gym website',name:'IronPeak Fitness',p:'For gyms that want trial bookings, not just likes.',
+ t:'<div class="in" style="background:#121212;color:#F5F4F2"><div style="font:800 14px \'Plus Jakarta Sans\';letter-spacing:1px">IRON<span style="color:#FB923C">PEAK</span></div><div style="font:800 38px/1 \'Plus Jakarta Sans\';letter-spacing:-1px;margin-top:16px">Train hard.<br><span style="color:#FB923C">Show up</span> daily.</div></div>'}
+];
+const G=[['all','All designs'],['business','Businesses'],['creator','Creators'],['personal','Personal'],['events','Events']];
+const SOON={personal:['Personal websites are coming soon','Resume sites, personal brands, doctors and consultants. Want one now? We will make a free sample.'],events:['Event websites are coming soon','Wedding invitations, parties and launches with RSVP. Want one now? We will make a free sample.']};
+const chips=document.getElementById('chips'),grid=document.getElementById('grid');
+chips.innerHTML=G.map(([k,l])=>{const n=k==='all'?D.length:D.filter(d=>d.g===k).length;return '<button class="chip" data-k="'+k+'" aria-pressed="false">'+l+' <b>'+(n||'Soon')+'</b></button>';}).join('');
+grid.innerHTML=D.map(d=>'<article class="card rv" data-g="'+d.g+'"><div class="thumb">'+(d.isNew?'<span class="tag">New</span>':'')+d.t+'</div><div class="body"><span class="cat">'+d.cat+'</span><h3>'+d.name+'</h3><p>'+d.p+'</p><div class="acts"><a class="pv" href="'+d.id+'/">Preview</a><a class="mk" href="'+WA(d.name)+'">Make this mine</a></div></div></article>').join('')+'<div class="soon" id="soon" hidden><h3></h3><p></p><a href="https://wa.me/918193968270?text=Namaste%20Amit%20ji%2C%20I%20would%20like%20a%20free%20sample%20design.">Ask for a free sample &rarr;</a></div>';
+const soon=document.getElementById('soon');
+function pick(k){if(!G.some(g=>g[0]===k))k='all';
+chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.k===k?'true':'false'));
+let shown=0;grid.querySelectorAll('.card').forEach(c=>{const on=k==='all'||c.dataset.g===k;c.hidden=!on;if(on){shown++;c.classList.add('on');}});
+soon.hidden=!!shown;if(!shown){soon.querySelector('h3').textContent=SOON[k][0];soon.querySelector('p').textContent=SOON[k][1];}}
+chips.addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;pick(c.dataset.k);history.replaceState(null,'',c.dataset.k==='all'?location.pathname:'#'+c.dataset.k);});
+pick(location.hash.slice(1)||'all');
+addEventListener('hashchange',()=>pick(location.hash.slice(1)||'all'));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.1});document.querySelectorAll('.rv').forEach(el=>io.observe(el));}else document.querySelectorAll('.rv').forEach(el=>el.classList.add('on'));
+}
+</script>
+</body>
+</html>
