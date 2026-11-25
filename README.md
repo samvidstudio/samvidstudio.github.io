@@ -1,2 +1,3 @@
 # samvidstudio.github.io
-Samvid website. Websites, apps and smart tools for growing businesses. samvidstudio.com
+
+Samvid website. Websites, smart tools and free tools for businesses, creators and job seekers. samvidstudio.com
